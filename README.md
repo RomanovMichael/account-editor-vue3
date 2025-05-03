@@ -1,6 +1,7 @@
 # Account Editor (Vue 3 + Pinia + PrimeVue)
 
-Управления учётными записями с использованием Vue 3, Pinia, PrimeVue и Vitest.
+Управление учётными записями с использованием Vue 3, Pinia, PrimeVue и Vitest.
+<img width="1428" alt="Снимок экрана 2025-05-04 в 00 32 03" src="https://github.com/user-attachments/assets/9f7a107e-4d95-405d-a7d2-76fc7fb00cde" />
 
 ## 📦 Стек
 
