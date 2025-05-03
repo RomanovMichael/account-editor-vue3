@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import { v4 as uuidv4 } from 'uuid'
 import { type IAccount } from 'TYPES/account'
 import { useAccountStore } from 'STORES/account'
 import AccountEditorItem from './AccountEditorItem.vue'
+import { createEmptyAccount } from 'UTILS/account'
 
 const accountStore = useAccountStore()
 
 const addAccount = () => {
-  accountStore.addAccount({
-    id: uuidv4(),
-    labels: [],
-    typeId: 'ldap',
-    login: '',
-    password: null,
-  })
+  accountStore.addAccount(createEmptyAccount())
 }
 
 const updateAccount = (id: string, updated: IAccount) => {
