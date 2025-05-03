@@ -4,18 +4,16 @@ import { stringifyLabels } from 'UTILS/labels'
 const FIELD_LIMITS: Record<string, number> = {
   login: 100,
   password: 100,
-  labels: 50, // общее поле (строка, а не каждый элемент)
+  labels: 50,
 }
 
 export const validateAccount = (account: IAccount): Record<string, boolean> => {
   const errors: Record<string, boolean> = {}
 
-  // Проверяем login
   if (!account.login.trim() || account.login.length > FIELD_LIMITS.login) {
     errors.login = true
   }
 
-  // Проверяем password (только если local)
   if (
     account.typeId === 'local' &&
     (typeof account.password !== 'string' ||
@@ -25,7 +23,6 @@ export const validateAccount = (account: IAccount): Record<string, boolean> => {
     errors.password = true
   }
 
-  // Проверяем общую длину labelsString
   const labelsString = stringifyLabels(account.labels)
   if (labelsString.length > FIELD_LIMITS.labels) {
     errors.labels = true

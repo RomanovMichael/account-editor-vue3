@@ -15,4 +15,8 @@ export default defineConfig({
       STORES: fileURLToPath(new URL('./src/stores', import.meta.url)),
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  },
 })
