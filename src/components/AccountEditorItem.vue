@@ -28,6 +28,7 @@ watch(
       class="account-editor-item__marks"
       v-model="localAccount.labelsString"
       autoResize
+      maxlength="50"
       placeholder="Метки"
     />
     <ui-select

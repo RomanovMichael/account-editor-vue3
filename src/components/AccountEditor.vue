@@ -53,7 +53,6 @@ const removeAccount = (id: string) => {
 <style scoped>
 .account-editor {
   max-width: 56.25rem;
-  margin: 0 auto;
   padding: 1.25rem;
 }
 
