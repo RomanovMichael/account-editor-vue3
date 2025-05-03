@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import { type IAccount } from 'TYPES/account'
+import { useAccountStore } from 'STORES/account'
 import AccountEditorItem from './AccountEditorItem.vue'
 
-const accounts = ref<IAccount[]>([])
+const accountStore = useAccountStore()
 
 const addAccount = () => {
-  accounts.value.push({
+  accountStore.addAccount({
     id: uuidv4(),
     labelsString: '',
     typeId: 'ldap',
@@ -17,14 +17,11 @@ const addAccount = () => {
 }
 
 const updateAccount = (id: string, updated: IAccount) => {
-  const index = accounts.value.findIndex((a) => a.id === id)
-  if (index !== -1) {
-    accounts.value[index] = updated
-  }
+  accountStore.updateAccount(id, updated)
 }
 
 const removeAccount = (id: string) => {
-  accounts.value = accounts.value.filter((a) => a.id !== id)
+  accountStore.removeAccount(id)
 }
 </script>
 
@@ -40,7 +37,7 @@ const removeAccount = (id: string) => {
     </div>
     <div class="account-editor__list">
       <account-editor-item
-        v-for="account in accounts"
+        v-for="account in accountStore.accountsList"
         :key="account.id"
         :account="account"
         @update="updateAccount(account.id, $event)"
@@ -52,8 +49,7 @@ const removeAccount = (id: string) => {
 
 <style scoped>
 .account-editor {
-  max-width: 56.25rem;
-  padding: 1.25rem;
+  max-width: 48rem;
 }
 
 .account-editor__topline {

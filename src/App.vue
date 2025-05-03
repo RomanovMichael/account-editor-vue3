@@ -1,11 +1,17 @@
 <script setup lang="ts">
+import { useAccountStore } from 'STORES/account'
 import AccountEditor from './components/AccountEditor.vue'
+
+const accountStore = useAccountStore()
 </script>
 
 <template>
   <div class="app-content">
     <AccountEditor />
-    <pre>Data</pre>
+    <pre>Data
+      <br><br>
+      {{ accountStore.accounts }}
+    </pre>
   </div>
 </template>
 
@@ -14,9 +20,11 @@ import AccountEditor from './components/AccountEditor.vue'
   display: flex;
   align-items: stretch;
   gap: 2.5rem;
+  overflow: hidden;
+  padding: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .app-content {
     flex-direction: column-reverse;
   }

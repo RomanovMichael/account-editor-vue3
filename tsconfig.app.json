@@ -7,7 +7,9 @@
 
     "paths": {
       "@/*": ["./src/*"],
-      "TYPES/*": ["./src/types/*"]
+      "TYPES/*": ["./src/types/*"],
+      "UTILS/*": ["./src/utils/*"],
+      "STORES/*": ["./src/stores/*"]
     }
   }
 }

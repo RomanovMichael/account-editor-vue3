@@ -11,6 +11,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       TYPES: fileURLToPath(new URL('./src/types', import.meta.url)),
+      UTILS: fileURLToPath(new URL('./src/utils', import.meta.url)),
+      STORES: fileURLToPath(new URL('./src/stores', import.meta.url)),
     },
   },
 })
