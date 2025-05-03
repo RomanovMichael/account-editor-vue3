@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { type IAccount, ACCOUNT_TYPES } from 'TYPES/account'
+import { parseLabelsString, stringifyLabels } from 'UTILS/labels'
 
 const props = defineProps<{
   account: IAccount
@@ -20,13 +21,20 @@ watch(
   },
   { deep: true },
 )
+
+const labelsString = computed({
+  get: () => stringifyLabels(localAccount.value.labels),
+  set: (val: string) => {
+    localAccount.value.labels = parseLabelsString(val)
+  },
+})
 </script>
 
 <template>
   <div class="account-editor-item">
     <ui-textarea
       class="account-editor-item__marks"
-      v-model="localAccount.labelsString"
+      v-model="labelsString"
       autoResize
       maxlength="50"
       placeholder="Метки"

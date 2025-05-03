@@ -9,7 +9,7 @@ const accountStore = useAccountStore()
 const addAccount = () => {
   accountStore.addAccount({
     id: uuidv4(),
-    labelsString: '',
+    labels: [],
     typeId: 'ldap',
     login: '',
     password: null,

@@ -8,9 +8,13 @@ export const ACCOUNT_TYPES: IAccountType[] = [
   { id: 'local', label: 'Локальная' },
 ]
 
+export interface IAccountLabel {
+  text: string
+}
+
 export interface IAccount {
   id: string
-  labelsString: string
+  labels: IAccountLabel[]
   typeId: IAccountType['id']
   login: string
   password: string | null
