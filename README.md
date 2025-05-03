@@ -1,45 +1,55 @@
-# account-manager-vue3
+# Account Editor (Vue 3 + Pinia + PrimeVue)
 
-This template should help get you started developing with Vue 3 in Vite.
+Управления учётными записями с использованием Vue 3, Pinia, PrimeVue и Vitest.
 
-## Recommended IDE Setup
+## 📦 Стек
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Vue 3 (Composition API, TypeScript)
+- Pinia (стейт-менеджер)
+- PrimeVue (UI-компоненты)
+- Vitest (юнит-тесты)
 
-## Type Support for `.vue` Imports in TS
+## 🚀 Функциональность
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+✅ Добавление, удаление и редактирование учётных записей  
+✅ Поддержка типов аккаунтов: LDAP и локальный  
+✅ Валидация полей (login, password, labels) с отображением ошибок  
+✅ Сохранение данных в LocalStorage  
+✅ Трансформация поля `labels` из строки в массив объектов `{ text: string }`  
+✅ Централизованное управление сохранением данных через store  
+✅ Юнит-тесты для валидации
 
-## Customize configuration
+## 📁 Структура проекта
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```
+src/
+  components/          → Vue-компоненты
+  stores/             → Pinia store
+  types/              → Общие типы (интерфейсы)
+  utils/              → Утилиты (работа с LocalStorage, парсеры)
+tests/                → Тесты Vitest
+```
 
-## Project Setup
+## 🏗️ Особенности
 
-```sh
+- Все бизнес-правила вынесены в утилиты, чтобы их легко было тестировать.
+- Логика работы с LocalStorage инкапсулирована.
+- Используем computed-геттеры, чтобы аккуратно связывать строковые и массивные поля (например, labels).
+
+## 🛠️ Установка
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## 💻 Локальная разработка
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## 🧪 Запуск тестов
 
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
+```bash
 npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
